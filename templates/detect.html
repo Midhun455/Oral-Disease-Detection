@@ -1,0 +1,94 @@
+{% extends 'commonBase.html' %}
+{% block header %}
+{% load static %}
+
+<style>
+    /* Image Upload */
+
+    #file-input {
+        display: none;
+    }
+
+    #img {
+        cursor: pointer;
+        height: 200px;
+        width: 200px;
+        padding: 10px;
+        /* border-radius: 100px; */
+    }
+
+    article,
+    aside,
+    figure,
+    footer,
+    header,
+    hgroup,
+    menu,
+    nav,
+    section {
+        display: block;
+    }
+
+    /* Image upload */
+</style>
+
+<div class="breadcumb-wrapper" data-bg-src="{% static 'assets/img/bg/breadcumb-bg.jpg' %}">
+    <div class="container">
+        <div class="breadcumb-content">
+            <h1 class="breadcumb-title">Upload Image</h1>
+            <ul class="breadcumb-menu">
+                <li><a href="/">Home</a></li>
+                <li>Upload Image</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="space" style="margin-top: -150px;">
+    <div class="container">
+    </div>
+</div>
+
+<div class="container">
+    <div class="space-bottom">
+        <div class="container">
+            <form method="POST" data-bg-src="{% static 'assets/img/bg/blog_bg_1.jpg' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="input-wrap">
+                    &nbsp;<br>&nbsp;<br>
+                    <!-- <h2 class="sec-title text-center">Upload Image</h2> -->
+                    <div class="row">
+                        <div class="image-upload text-center" style="margin-top: -30px;">
+                            <label for="file-input">
+                                <img id="img" src="/static/assets/img/upload.png" alt="Upload Image"
+                                    title="Upload Image" style="margin: auto" />
+                            </label>
+                            <p class="mb-2">Choose Image</p>
+                            <input id="file-input" required onchange="readURL(this)" name="imgfile" type="file" />
+                        </div>
+                        <div class="form-btn col-12" style="display: flex; justify-content: center;">
+                            <button type="submit" class="th-btn btn-fw" style="width: 100px;">UPLOAD</button>
+                        </div>
+                    </div>
+                    <br>
+                    <p class="form-messages mb-0 mt-3"></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $("#img").attr("src", e.target.result);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+{% endblock %}

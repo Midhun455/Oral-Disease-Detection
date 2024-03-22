@@ -1,0 +1,47 @@
+{% extends 'commonBase.html' %}
+{% block header %}
+{% load static %}
+
+<style>
+    #img {
+        margin-bottom: 20px;
+        height: 400px;
+        width: 400px;
+        position: relative;
+        left: 37%;
+    }
+
+    #btn {
+        margin-bottom: 20px;
+    }
+</style>
+
+<div class="breadcumb-wrapper" data-bg-src="{% static 'assets/img/bg/breadcumb-bg.jpg' %}">
+    <div class="container">
+        <div class="breadcumb-content">
+            <h1 class="breadcumb-title">Test Results</h1>
+            <ul class="breadcumb-menu">
+                <li><a>Home</a></li>
+                <li>Test Results</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="space" style="margin-top: -200px;">
+    <div class="container">
+    </div>
+</div>
+
+
+<div class="div">
+    {% if image %}
+    <img src="{{image}}" alt="" id="img">
+    <br> <br>
+    <div class="div-btn text-center">
+        <a href="/detect" id="btn" class="btn btn-success">Test Again</a>
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}

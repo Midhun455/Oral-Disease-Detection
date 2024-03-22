@@ -1,0 +1,13 @@
+train: dataset/train/images
+val: dataset/valid/images
+test: dataset/test/images
+
+nc: 3
+names: ['caries', 'impaction', 'periodontitis']
+
+roboflow:
+  workspace: aksa-shaji-elvxv
+  project: xray-detection-xy7tk
+  version: 9
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/aksa-shaji-elvxv/xray-detection-xy7tk/dataset/9
